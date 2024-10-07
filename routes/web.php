@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/home', function () {
     return view('home');
@@ -69,3 +70,6 @@ Route::delete('/categoria/destroy/{id}', [CategoriaController::class, 'destroy']
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/reporte', [ReportController::class, 'reporteUno']);
+Route::get('/reporteCliente', [ReportController::class, 'reporteCliente']);

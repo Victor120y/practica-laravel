@@ -12,6 +12,7 @@
     <hr>
     <div class="container">
     <a class="btn btn-danger btn-sm" href="/cliente/create">Agregar Clientes nuevo</a>
+    <a class="btn btn-info btn-sm" href="/reporteCliente" target="_blank">Reporte</a>
     <table class="table table-hover caption-top table-responsive">
         <caption>Lista de Clientes</caption>
             <thead class="table-dark">
