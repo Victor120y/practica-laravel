@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ExampleController;
 
 Route::get('/home', function () {
     return view('home');
@@ -73,3 +74,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/reporte', [ReportController::class, 'reporteUno']);
 Route::get('/reporteCliente', [ReportController::class, 'reporteCliente']);
+
+//Ruta para el servicio.
+Route::get('/greet', [ExampleController::class, 'showGreeting']);

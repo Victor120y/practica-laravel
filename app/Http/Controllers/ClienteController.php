@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\Categoria; // agregamos nestra clase del modelo Branch donde tenemos la informacion de categorias
 use App\Models\Cliente;
+use App\Services\NotificationService; // Importa el servicio
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+    protected $notificationService;
+
+    public function __construct(NotificationService $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
+
    /**
      * Display a listing of the resource.
      */
@@ -54,7 +62,8 @@ class ClienteController extends Controller
         Cliente::create($data);
 
         //Redireccionar
-        return redirect('/cliente/show');
+        //return redirect('/cliente/show');
+        return $this->notificationService->notify('El cliente ha sido guardado correctamente por victor.', '/cliente/show');
     }
 
     /**
@@ -101,7 +110,8 @@ class ClienteController extends Controller
         $cliente->save();
 
         //Redireccionar
-        return redirect('/cliente/show');
+        //return redirect('/cliente/show');
+        return $this->notificationService->notify("El cliente '{$cliente->nombre}' ha sido actualizado correctamente por Victor.", '/cliente/show');
     }
 
     /**
